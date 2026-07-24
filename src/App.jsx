@@ -1,8 +1,28 @@
 import { useState } from 'react';
-import { ArrowRight, Check, ChevronDown, Instagram, Menu, X } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown, Menu, X } from 'lucide-react';
 
 const WHATSAPP = '5511921801361';
 const wa = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+function InstagramMark({ size = 18 }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="18" height="18" x="3" y="3" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
 
 const services = [
   ['01', 'Identidade visual', 'Logo, paleta, tipografia e sistema visual aplicável no digital.'],
@@ -35,11 +55,11 @@ function Header() {
     <div className="container header-inner">
       <Brand />
       <nav>{links.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
-      <a className="button" href={wa('Olá! Quero transformar meu Instagram com a LB Social Studio.')} target="_blank">Orçamento <ArrowRight size={16}/></a>
-      <button className="menu" onClick={() => setOpen(true)}><Menu /></button>
+      <a className="button" href={wa('Olá! Quero transformar meu Instagram com a LB Social Studio.')} target="_blank" rel="noreferrer">Orçamento <ArrowRight size={16}/></a>
+      <button className="menu" onClick={() => setOpen(true)} aria-label="Abrir menu"><Menu /></button>
     </div>
     <div className={`mobile ${open ? 'open' : ''}`}>
-      <button onClick={() => setOpen(false)}><X /></button>
+      <button onClick={() => setOpen(false)} aria-label="Fechar menu"><X /></button>
       {links.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}
     </div>
   </header>;
@@ -69,7 +89,7 @@ function App() {
             <span className="eyebrow">SOCIAL MEDIA + BRANDING</span>
             <h1>Transformamos o seu Instagram <em>em uma marca</em> que se destaca.</h1>
             <p>Reestruturação completa de perfis profissionais com estratégia, identidade visual e conteúdo que geram resultado.</p>
-            <div className="actions"><a className="button" href={wa('Olá! Quero transformar meu perfil.')} target="_blank">Quero transformar meu perfil <ArrowRight size={17}/></a><a className="link" href="#portfolio">Ver portfólio <ArrowRight size={15}/></a></div>
+            <div className="actions"><a className="button" href={wa('Olá! Quero transformar meu perfil.')} target="_blank" rel="noreferrer">Quero transformar meu perfil <ArrowRight size={17}/></a><a className="link" href="#portfolio">Ver portfólio <ArrowRight size={15}/></a></div>
           </div>
           <DigitalVisual />
         </div>
@@ -100,15 +120,15 @@ function App() {
 
       <section className="section" id="pacotes">
         <div className="container"><span className="eyebrow">PACOTES</span><h2>Comece pelo nível certo para sua marca.</h2>
-          <div className="pricing">{packages.map(([name,price,items],i)=><article className={i===1?'featured':''} key={name}><span>0{i+1}</span><h3>{name}</h3><div className="price"><small>R$</small>{price}</div><ul>{items.map(x=><li key={x}><Check size={15}/>{x}</li>)}</ul><a href={wa(`Olá! Quero saber mais sobre o pacote ${name}.`)} target="_blank">Escolher pacote <ArrowRight size={16}/></a></article>)}</div>
+          <div className="pricing">{packages.map(([name,price,items],i)=><article className={i===1?'featured':''} key={name}><span>0{i+1}</span><h3>{name}</h3><div className="price"><small>R$</small>{price}</div><ul>{items.map(x=><li key={x}><Check size={15}/>{x}</li>)}</ul><a href={wa(`Olá! Quero saber mais sobre o pacote ${name}.`)} target="_blank" rel="noreferrer">Escolher pacote <ArrowRight size={16}/></a></article>)}</div>
         </div>
       </section>
 
       <section className="section faq" id="faq"><div className="container split"><div><span className="eyebrow">FAQ</span><h2>Dúvidas frequentes.</h2></div><div>{faqs.map(([q,a],i)=><article className={faq===i?'active':''} key={q}><button onClick={()=>setFaq(faq===i?-1:i)}><span>{q}</span><ChevronDown size={20}/></button><p>{a}</p></article>)}</div></div></section>
 
-      <section className="cta"><div className="container"><span className="eyebrow">PRONTO PARA MUDAR?</span><h2>Seu Instagram pode começar a parecer uma empresa hoje.</h2><a className="button light" href={wa('Olá! Quero começar meu projeto com a LB Social Studio.')} target="_blank">Falar no WhatsApp <ArrowRight size={17}/></a></div></section>
+      <section className="cta"><div className="container"><span className="eyebrow">PRONTO PARA MUDAR?</span><h2>Seu Instagram pode começar a parecer uma empresa hoje.</h2><a className="button light" href={wa('Olá! Quero começar meu projeto com a LB Social Studio.')} target="_blank" rel="noreferrer">Falar no WhatsApp <ArrowRight size={17}/></a></div></section>
     </main>
-    <footer><div className="container"><Brand/><p>Estratégia • Design • Conteúdo • Performance</p><a href="https://instagram.com" target="_blank"><Instagram size={18}/> Instagram</a></div></footer>
+    <footer><div className="container"><Brand/><p>Estratégia • Design • Conteúdo • Performance</p><a href="https://instagram.com" target="_blank" rel="noreferrer"><InstagramMark size={18}/> Instagram</a></div></footer>
   </>;
 }
 
