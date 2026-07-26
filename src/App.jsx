@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { ArrowRight, Check, ChevronDown, Menu, X } from 'lucide-react';
 
 const WHATSAPP = '5511921801361';
+const INSTAGRAM_HANDLE = '@LAB8.md';
+const INSTAGRAM_URL = 'https://www.instagram.com/lab8.md/';
 const wa = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
 function InstagramMark({ size = 18 }) {
@@ -44,18 +46,23 @@ const faqs = [
   ['Preciso já ter um logo?', 'Não. Podemos organizar o atual ou criar uma solução tipográfica nova.'],
 ];
 
-function Brand() {
-  return <a className="brand" href="#top"><strong>LB SOCIAL</strong><span>STUDIO</span></a>;
+function Brand({ light = false }) {
+  return (
+    <a className="brand" href="#top" aria-label="LAB8 Social Media Design — início">
+      <img src={light ? '/lab8-logo-light.svg' : '/lab8-logo.svg'} alt="LAB8 Social Media Design" />
+    </a>
+  );
 }
 
 function Header() {
   const [open, setOpen] = useState(false);
   const links = [['Serviços', 'servicos'], ['Processo', 'processo'], ['Portfólio', 'portfolio'], ['Pacotes', 'pacotes'], ['FAQ', 'faq']];
+
   return <header>
     <div className="container header-inner">
       <Brand />
-      <nav>{links.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
-      <a className="button" href={wa('Olá! Quero transformar meu Instagram com a LB Social Studio.')} target="_blank" rel="noreferrer">Orçamento <ArrowRight size={16}/></a>
+      <nav aria-label="Navegação principal">{links.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
+      <a className="button" href={wa('Olá! Quero transformar meu Instagram com a LAB8.')} target="_blank" rel="noreferrer">Orçamento <ArrowRight size={16}/></a>
       <button className="menu" onClick={() => setOpen(true)} aria-label="Abrir menu"><Menu /></button>
     </div>
     <div className={`mobile ${open ? 'open' : ''}`}>
@@ -66,30 +73,31 @@ function Header() {
 }
 
 function DigitalVisual() {
-  return <div className="visual-shell">
+  return <div className="visual-shell" aria-label="Exemplo visual de uma presença digital estruturada">
     <div className="screen screen-main">
-      <div className="screen-bar"><span>LB</span><i/><i/><i/></div>
+      <div className="screen-bar"><img src="/lab8-icon.svg" alt=""/><span>LAB8</span><i/><i/><i/></div>
       <div className="dashboard-title">Conteúdo e performance</div>
       <div className="metrics"><b>85,2K<small>alcance</small></b><b>7,8%<small>engajamento</small></b><b>34K<small>cliques</small></b></div>
       <div className="chart"><i/><i/><i/><i/><i/><i/><i/></div>
     </div>
-    <div className="phone"><div className="phone-head">lb.social.studio</div><div className="grid">{Array.from({length:9},(_,i)=><i key={i}/>)}</div></div>
-    <div className="screen-card"><span>BRAND SYSTEM</span><strong>Aa</strong><div><i/><i/><i/></div></div>
+    <div className="phone"><div className="phone-head">@lab8.md</div><div className="grid">{Array.from({length:9},(_,i)=><i key={i}/>)}</div></div>
+    <div className="screen-card"><span>LAB8 BRAND SYSTEM</span><strong>Aa</strong><div><i/><i/><i/></div></div>
   </div>;
 }
 
 function App() {
   const [faq, setFaq] = useState(0);
+
   return <>
     <Header />
     <main id="top">
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <span className="eyebrow">SOCIAL MEDIA + BRANDING</span>
+            <span className="eyebrow">LAB8 · SOCIAL MEDIA DESIGN</span>
             <h1>Transformamos o seu Instagram <em>em uma marca</em> que se destaca.</h1>
             <p>Reestruturação completa de perfis profissionais com estratégia, identidade visual e conteúdo que geram resultado.</p>
-            <div className="actions"><a className="button" href={wa('Olá! Quero transformar meu perfil.')} target="_blank" rel="noreferrer">Quero transformar meu perfil <ArrowRight size={17}/></a><a className="link" href="#portfolio">Ver portfólio <ArrowRight size={15}/></a></div>
+            <div className="actions"><a className="button" href={wa('Olá! Quero transformar meu perfil com a LAB8.')} target="_blank" rel="noreferrer">Quero transformar meu perfil <ArrowRight size={17}/></a><a className="link" href="#portfolio">Ver portfólio <ArrowRight size={15}/></a></div>
           </div>
           <DigitalVisual />
         </div>
@@ -104,7 +112,7 @@ function App() {
 
       <section className="section" id="processo">
         <div className="container split">
-          <div><span className="eyebrow">PROCESSO</span><h2>Um sistema digital que sua empresa consegue manter.</h2></div>
+          <div><span className="eyebrow">PROCESSO LAB8</span><h2>Um sistema digital que sua empresa consegue manter.</h2></div>
           <div className="steps">{['Diagnóstico do perfil e posicionamento','Direção visual e sistema da marca','Templates, conteúdo e organização','Entrega editável e orientação de uso'].map((x,i)=><div key={x}><b>0{i+1}</b><p>{x}</p></div>)}</div>
         </div>
       </section>
@@ -113,22 +121,22 @@ function App() {
         <div className="container">
           <span className="eyebrow">PORTFÓLIO</span><h2>Resultados que falam por si só.</h2>
           <div className="portfolio-grid">
-            {['Beleza','Saúde','Moda','Serviços'].map((x,i)=><article key={x} className={`project p${i}`}><span>{x}</span><div className="project-phone"><div className="grid">{Array.from({length:9},(_,j)=><i key={j}/>)}</div></div><h3>{['Clínica Vitale','Nutri Balance','Voga Clothing','Studio 8'][i]}</h3></article>)}
+            {['Beleza','Saúde','Moda','Serviços'].map((x,i)=><article key={x} className={`project p${i}`}><span>{x}</span><div className="project-phone"><div className="grid">{Array.from({length:9},(_,j)=><i key={j}/>)}</div></div><h3>{['Clínica Vitale','Nutri Balance','Voga Clothing','Nexo Serviços'][i]}</h3></article>)}
           </div>
         </div>
       </section>
 
       <section className="section" id="pacotes">
         <div className="container"><span className="eyebrow">PACOTES</span><h2>Comece pelo nível certo para sua marca.</h2>
-          <div className="pricing">{packages.map(([name,price,items],i)=><article className={i===1?'featured':''} key={name}><span>0{i+1}</span><h3>{name}</h3><div className="price"><small>R$</small>{price}</div><ul>{items.map(x=><li key={x}><Check size={15}/>{x}</li>)}</ul><a href={wa(`Olá! Quero saber mais sobre o pacote ${name}.`)} target="_blank" rel="noreferrer">Escolher pacote <ArrowRight size={16}/></a></article>)}</div>
+          <div className="pricing">{packages.map(([name,price,items],i)=><article className={i===1?'featured':''} key={name}><span>0{i+1}</span><h3>{name}</h3><div className="price"><small>R$</small>{price}</div><ul>{items.map(x=><li key={x}><Check size={15}/>{x}</li>)}</ul><a href={wa(`Olá! Quero saber mais sobre o pacote ${name} da LAB8.`)} target="_blank" rel="noreferrer">Escolher pacote <ArrowRight size={16}/></a></article>)}</div>
         </div>
       </section>
 
-      <section className="section faq" id="faq"><div className="container split"><div><span className="eyebrow">FAQ</span><h2>Dúvidas frequentes.</h2></div><div>{faqs.map(([q,a],i)=><article className={faq===i?'active':''} key={q}><button onClick={()=>setFaq(faq===i?-1:i)}><span>{q}</span><ChevronDown size={20}/></button><p>{a}</p></article>)}</div></div></section>
+      <section className="section faq" id="faq"><div className="container split"><div><span className="eyebrow">FAQ</span><h2>Dúvidas frequentes.</h2></div><div>{faqs.map(([q,a],i)=><article className={faq===i?'active':''} key={q}><button onClick={()=>setFaq(faq===i?-1:i)} aria-expanded={faq===i}><span>{q}</span><ChevronDown size={20}/></button><p>{a}</p></article>)}</div></div></section>
 
-      <section className="cta"><div className="container"><span className="eyebrow">PRONTO PARA MUDAR?</span><h2>Seu Instagram pode começar a parecer uma empresa hoje.</h2><a className="button light" href={wa('Olá! Quero começar meu projeto com a LB Social Studio.')} target="_blank" rel="noreferrer">Falar no WhatsApp <ArrowRight size={17}/></a></div></section>
+      <section className="cta"><div className="container"><span className="eyebrow">PRONTO PARA MUDAR?</span><h2>Seu Instagram pode começar a parecer uma empresa hoje.</h2><a className="button light" href={wa('Olá! Quero começar meu projeto com a LAB8.')} target="_blank" rel="noreferrer">Falar no WhatsApp <ArrowRight size={17}/></a></div></section>
     </main>
-    <footer><div className="container"><Brand/><p>Estratégia • Design • Conteúdo • Performance</p><a href="https://instagram.com" target="_blank" rel="noreferrer"><InstagramMark size={18}/> Instagram</a></div></footer>
+    <footer><div className="container"><Brand light/><p>Infinite creativity • Strategic design • Social impact</p><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label={`Abrir Instagram ${INSTAGRAM_HANDLE}`}><InstagramMark size={18}/> {INSTAGRAM_HANDLE}</a></div></footer>
   </>;
 }
 
