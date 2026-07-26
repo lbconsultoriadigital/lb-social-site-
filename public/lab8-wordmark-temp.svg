@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">LAB8</title>
+  <desc id="desc">Wordmark tipográfico temporário da LAB8</desc>
+  <rect width="160" height="160" fill="#2D4BFF"/>
+  <text x="80" y="92" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat,Arial,sans-serif" font-size="48" font-weight="700" letter-spacing="-3">LAB8</text>
+  <path d="M24 116H136" stroke="#111111" stroke-width="8"/>
+</svg>
