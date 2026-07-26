@@ -124,16 +124,24 @@ function Header() {
           <nav className="desktop-nav" aria-label="Navegação principal">
             {navigation.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}
           </nav>
-          <button className="menu-trigger" onClick={() => setOpen(true)} aria-label="Abrir menu">
+          <button
+            className="menu-trigger"
+            onClick={() => setOpen(true)}
+            aria-label="Abrir menu"
+            aria-controls="mobile-navigation"
+            aria-expanded={open}
+          >
             <Menu size={20} />
           </button>
         </div>
         <a className="header-cta" href={wa('Olá! Quero transformar meu Instagram com a LAB8.')} target="_blank" rel="noreferrer">
-          Orçamento <ArrowUpRight size={16} />
+          <span className="header-cta-label header-cta-label--full">Orçamento</span>
+          <span className="header-cta-label header-cta-label--short">Falar</span>
+          <ArrowUpRight size={16} />
         </a>
       </div>
 
-      <div className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
+      <div id="mobile-navigation" className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
         <button onClick={() => setOpen(false)} aria-label="Fechar menu"><X size={28} /></button>
         <Wordmark />
         <nav aria-label="Navegação móvel">
