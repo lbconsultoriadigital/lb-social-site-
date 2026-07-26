@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 160" role="img" aria-labelledby="title desc">
+  <title id="title">Símbolo LAB8</title>
+  <desc id="desc">Símbolo em forma de oito infinito nas cores azul royal e preto</desc>
+  <rect width="170" height="160" fill="none"/>
+  <path d="M50 36C50 12 80 1 101 14C121 26 123 53 104 67L66 94C47 107 49 134 71 143C93 152 119 137 119 113" fill="none" stroke="#2D4BFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M119 36C119 12 89 1 68 14C48 26 46 53 65 67L103 94C122 107 120 134 98 143C76 152 50 137 50 113" fill="none" stroke="#111111" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="37" cy="139" r="9" fill="#111111"/>
+  <circle cx="130" cy="12" r="9" fill="#2D4BFF"/>
+</svg>
