@@ -110,6 +110,14 @@ function Wordmark({ compact = false }) {
   );
 }
 
+function OriginalMark() {
+  return (
+    <span className="original-mark" aria-hidden="true">
+      <img src="/lab8-original-logo.jpg" alt="" />
+    </span>
+  );
+}
+
 function Header() {
   const [open, setOpen] = useState(false);
 
@@ -118,6 +126,7 @@ function Header() {
       <div className="header-frame">
         <div className="nav-shell">
           <a href="#top" className="nav-wordmark" aria-label="LAB8 — início">
+            <OriginalMark />
             <Wordmark compact />
           </a>
           <span className="nav-divider" aria-hidden="true" />
@@ -143,7 +152,7 @@ function Header() {
 
       <div id="mobile-navigation" className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
         <button onClick={() => setOpen(false)} aria-label="Fechar menu"><X size={28} /></button>
-        <Wordmark />
+        <img className="mobile-logo-original" src="/lab8-original-logo.jpg" alt="LAB8 Social Media Design" />
         <nav aria-label="Navegação móvel">
           {navigation.map(([label, id]) => (
             <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>
@@ -211,7 +220,11 @@ function App() {
           <div className="hero-inner">
             <div className="hero-copy">
               <span className="eyebrow eyebrow--light">Social Media Design Studio</span>
-              <h1>Transforma<br />presença em<br />percepção.</h1>
+              <h1>
+                <span>Transforma</span>
+                <span>presença em</span>
+                <span>percepção.</span>
+              </h1>
             </div>
             <div className="hero-side">
               <p>Seu Instagram não precisa parecer improvisado. Transformamos perfis fracos em marcas profissionais, estratégicas e prontas para vender.</p>
@@ -404,8 +417,10 @@ function App() {
             <p>São Paulo, Brasil</p>
           </div>
           <div className="official-logo-zone">
-            <span>Official Identity Zone</span>
-            <div>Área reservada para o vetor oficial</div>
+            <span>Identidade original LAB8</span>
+            <div>
+              <img src="/lab8-original-logo.jpg" alt="Logo original LAB8 Social Media Design" />
+            </div>
           </div>
         </div>
         <div className="footer-bottom">
