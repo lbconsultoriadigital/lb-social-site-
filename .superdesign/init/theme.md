@@ -1,0 +1,84 @@
+# Theme
+
+## Compact token summary
+
+### Stack
+
+- Framework: React 19-style API on Vite.
+- Icons: `lucide-react` plus inline Instagram SVG.
+- CSS: global vanilla CSS in `src/styles.css`; no Tailwind or component library.
+- Fonts loaded from Google Fonts in `index.html`.
+
+### Colors
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--ink` | `#111111` | Primary text, dark surfaces |
+| `--paper` | `#FFFFFF` | Main background |
+| `--soft` | `#F5F7FF` | Soft blue-tinted surface |
+| `--white` | `#FFFFFF` | Inverse text |
+| `--blue` | `#2D4BFF` | LAB8 royal blue |
+| `--blue-dark` | `#1834D8` | Existing chart accent |
+| `--muted` | `#646873` | Supporting copy |
+| `--line` | `#E1E5EE` | Rules and borders |
+
+### Typography
+
+- Display/title: Montserrat 500/600/700, negative tracking up to `-0.055em`, tight line-height around `0.98`.
+- Body/UI: Poppins 400/500/600.
+- Hero: `clamp(54px, 6vw, 98px)`.
+- Section headings: `clamp(48px, 5vw, 78px)`.
+- CTA heading: `clamp(55px, 6vw, 94px)`.
+- Eyebrow/UI labels: 10–12px uppercase with `0.08em–0.16em` tracking.
+
+### Layout and rhythm
+
+- Content width: `min(1400px, calc(100% - 64px))`.
+- Header height: 86px desktop, 76px mobile.
+- Major section padding: 120px desktop, 80px tablet/mobile.
+- Primary breakpoint: 1000px; mobile breakpoint: 650px.
+- Existing cards are mostly square-edged; phone mockup is rounded.
+
+### Motion
+
+- Smooth anchor scrolling.
+- CTA hover: `translateY(-2px)` and background swap.
+- Navigation hover color shift.
+- Mobile menu full-screen overlay.
+- FAQ accordion uses visibility plus chevron rotation.
+
+## Raw sources
+
+### `index.html`
+
+```html
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2D4BFF" />
+    <meta name="description" content="LAB8 Social Media Design — identidade visual, conteúdo e estratégia digital para transformar perfis profissionais." />
+    <meta property="og:title" content="LAB8 Social Media Design" />
+    <meta property="og:description" content="Seu Instagram com cara de empresa." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/lab8-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <title>LAB8 Social Media Design</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+### `src/styles.css`
+
+```css
+:root{--ink:#111111;--paper:#ffffff;--soft:#f5f7ff;--white:#ffffff;--blue:#2d4bff;--blue-dark:#1834d8;--muted:#646873;--line:#e1e5ee;font-family:Poppins,Arial,sans-serif;color:var(--ink);background:var(--paper)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper)}a{text-decoration:none;color:inherit}button{font:inherit}.container{width:min(1400px,calc(100% - 64px));margin:auto}.eyebrow{display:inline-block;color:var(--blue);font-family:Montserrat,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.header-inner{height:86px;display:flex;align-items:center;justify-content:space-between;gap:32px}.brand{display:block;line-height:0}.brand img{display:block;width:178px;height:auto}.header-inner nav{display:flex;gap:42px;font-size:12px;font-weight:500;text-transform:uppercase}.header-inner nav a{transition:color .2s ease}.header-inner nav a:hover{color:var(--blue)}.button{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:var(--ink);color:#fff;min-height:52px;padding:0 26px;text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:.08em;border:0;transition:transform .2s ease,background .2s ease}.button:hover{background:var(--blue);transform:translateY(-2px)}.menu{display:none;border:0;background:none}.mobile{display:none}.hero{padding:50px 0 0}.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;min-height:700px}.hero h1,.section h2,.cta h2{font-family:Montserrat,Arial,sans-serif;font-weight:500;letter-spacing:-.055em;line-height:.98}.hero h1{font-size:clamp(54px,6vw,98px);margin:28px 0}.hero h1 em{color:var(--blue);font-style:normal}.hero p{max-width:630px;color:var(--muted);font-size:18px;line-height:1.7}.actions{display:flex;align-items:center;gap:36px;margin-top:34px}.link{display:inline-flex;gap:10px;align-items:center;text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:.08em}.visual-shell{height:620px;position:relative;background:linear-gradient(135deg,var(--soft),#fff);overflow:hidden;border:1px solid var(--line)}.visual-shell:before{content:"";position:absolute;width:310px;height:310px;border-radius:50%;right:-90px;top:-110px;background:rgba(45,75,255,.12)}.screen{position:absolute;background:#111;color:#fff;box-shadow:0 30px 80px rgba(0,0,0,.18)}.screen-main{width:70%;height:56%;right:3%;top:8%;padding:26px}.screen-bar{display:flex;gap:7px;align-items:center}.screen-bar img{width:28px;height:34px;object-fit:contain;margin-right:2px}.screen-bar span{margin-right:auto;font-family:Montserrat,Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em}.screen-bar i{width:6px;height:6px;border-radius:50%;background:#777}.dashboard-title{font-family:Montserrat,Arial,sans-serif;font-size:30px;margin:32px 0}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.metrics b{font-size:23px}.metrics small{display:block;color:#aaa;font-size:9px;text-transform:uppercase;margin-top:5px}.chart{height:110px;display:flex;align-items:flex-end;gap:12px;margin-top:28px}.chart i{flex:1;background:linear-gradient(var(--blue),var(--blue-dark));height:20%}.chart i:nth-child(2){height:42%}.chart i:nth-child(3){height:32%}.chart i:nth-child(4){height:68%}.chart i:nth-child(5){height:56%}.chart i:nth-child(6){height:82%}.chart i:nth-child(7){height:100%}.phone{position:absolute;width:24%;height:58%;left:9%;bottom:-5%;background:#0f0f10;border:8px solid #0f0f10;border-radius:34px;padding:20px 10px;box-shadow:0 30px 70px rgba(0,0,0,.25);color:#fff}.phone-head{font-size:9px;text-align:center;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.grid i{aspect-ratio:1;background:#eee}.grid i:nth-child(2n){background:#222}.grid i:nth-child(3n){background:var(--blue)}.screen-card{position:absolute;right:12%;bottom:5%;width:43%;height:27%;padding:24px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.16)}.screen-card span{font-size:9px;font-weight:600;letter-spacing:.16em}.screen-card strong{display:block;font-size:56px;font-family:Montserrat,Arial,sans-serif;margin:12px 0}.screen-card div{display:flex;gap:7px}.screen-card i{width:46px;height:20px;background:#111}.screen-card i:nth-child(2){background:#eee}.screen-card i:nth-child(3){background:var(--blue)}.services{background:#111;color:#fff;padding:54px 0}.service-grid{display:grid;grid-template-columns:1.1fr repeat(4,1fr)}.service-grid>div,.service-grid article{padding:26px;border-right:1px solid #444}.service-grid h2{font-family:Montserrat,Arial,sans-serif;font-size:30px;font-weight:500}.service-grid article>span{color:var(--blue);font-size:12px}.service-grid h3{font-family:Montserrat,Arial,sans-serif;font-size:20px;font-weight:500;margin:30px 0 10px}.service-grid p{color:#aaa;line-height:1.6;font-size:14px}.section{padding:120px 0}.section h2{font-size:clamp(48px,5vw,78px);margin:26px 0 56px}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px}.steps{border-top:1px solid var(--line)}.steps div{display:grid;grid-template-columns:70px 1fr;border-bottom:1px solid var(--line);padding:24px 0}.steps b{color:var(--blue)}.steps p{font-size:21px;margin:0}.dark{background:#111;color:#fff}.dark h2{max-width:700px}.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.project{min-height:500px;padding:22px;background:#1a1a1b;position:relative;overflow:hidden}.project>span{font-size:10px;text-transform:uppercase;border:1px solid #777;border-radius:20px;padding:7px 11px}.project-phone{width:60%;margin:70px auto 45px;padding:8px;background:#090909;border-radius:24px;transform:rotate(-4deg)}.project h3{font-family:Montserrat,Arial,sans-serif;font-size:24px;font-weight:500}.p1{background:#263b85}.p2{background:#2938a8}.p3{background:#252525}.pricing{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.pricing article{min-height:590px;padding:34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}.pricing article.featured{background:#111;color:#fff}.pricing article>span{color:var(--blue)}.pricing h3{font-family:Montserrat,Arial,sans-serif;font-size:34px;font-weight:500;margin:46px 0 20px}.price{font-family:Montserrat,Arial,sans-serif;font-size:72px;letter-spacing:-.06em}.price small{font-size:14px;margin-right:8px}.pricing ul{padding:0;margin:32px 0;list-style:none;display:grid;gap:14px}.pricing li{display:flex;gap:9px;color:var(--muted)}.featured li{color:#bbb}.pricing article>a{margin-top:auto;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:20px;text-transform:uppercase;font-size:11px;font-weight:600}.faq article{border-top:1px solid var(--line)}.faq article:last-child{border-bottom:1px solid var(--line)}.faq button{width:100%;border:0;background:none;display:flex;align-items:center;justify-content:space-between;padding:24px 0;font-size:20px;text-align:left}.faq article p{display:none;color:var(--muted);line-height:1.7;margin:0;padding:0 0 25px}.faq article.active p{display:block}.faq article.active svg{transform:rotate(180deg)}.cta{background:var(--blue);color:#fff;padding:110px 0;text-align:center}.cta .eyebrow{color:#fff}.cta h2{font-size:clamp(55px,6vw,94px);max-width:1000px;margin:28px auto 42px}.button.light{background:#fff;color:#111}.button.light:hover{background:#111;color:#fff}footer{background:#0d0d0e;color:#fff;padding:45px 0}footer .container{display:flex;align-items:center;justify-content:space-between;gap:30px}footer .brand img{width:170px}footer p{color:#8b8f99;text-transform:uppercase;font-size:10px;letter-spacing:.14em;text-align:center}footer>a,footer .container>a:last-child{display:flex;gap:8px;align-items:center;color:#fff}@media(max-width:1000px){.container{width:min(100% - 34px,1400px)}.header-inner nav,.header-inner>.button{display:none}.menu{display:block}.mobile{position:fixed;inset:0;background:#111;color:#fff;z-index:40;padding:30px;flex-direction:column;gap:30px}.mobile.open{display:flex}.mobile button{margin-left:auto;background:none;border:0;color:#fff}.mobile a{font-family:Montserrat,Arial,sans-serif;font-size:32px}.hero-grid,.split{grid-template-columns:1fr}.hero-grid{padding-top:60px}.visual-shell{margin-top:50px;height:520px}.service-grid{grid-template-columns:1fr 1fr}.service-grid>div{grid-column:1/-1}.portfolio-grid{grid-template-columns:1fr 1fr}.pricing{grid-template-columns:1fr}.section{padding:80px 0}.split{gap:30px}}@media(max-width:650px){.header-inner{height:76px}.brand img{width:145px}.hero h1{font-size:50px}.actions{align-items:flex-start;flex-direction:column}.visual-shell{height:420px}.screen-main{width:88%;height:54%}.phone{width:34%}.screen-card{width:56%}.service-grid,.portfolio-grid{grid-template-columns:1fr}.service-grid article{border-top:1px solid #444}.project{min-height:420px}footer .container{flex-direction:column;gap:28px}.section h2{font-size:46px}}
+```
+
+There is no Tailwind configuration or theme provider.
