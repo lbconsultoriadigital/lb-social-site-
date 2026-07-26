@@ -13,11 +13,11 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; overflow-x: hidden; background: var(--white); }
+body { margin: 0; background: var(--white); }
 a { color: inherit; text-decoration: none; }
 button, summary { font: inherit; }
 button { color: inherit; }
-svg { display: block; }
+svg { display: block; flex: 0 0 auto; }
 
 .sr-only {
   position: absolute;
@@ -123,6 +123,7 @@ svg { display: block; }
   transition: background .2s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1);
 }
 .header-cta:hover { background: var(--black); transform: translateY(-2px); }
+.header-cta-label--short { display: none; }
 
 .menu-trigger { display: none; border: 0; background: none; padding: 0; }
 .mobile-menu {
@@ -137,9 +138,12 @@ svg { display: block; }
   background: var(--black);
   transform: translateX(100%);
   transition: transform .25s cubic-bezier(.4,0,.2,1);
+  visibility: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   pointer-events: auto;
 }
-.mobile-menu.is-open { transform: translateX(0); }
+.mobile-menu.is-open { transform: translateX(0); visibility: visible; }
 .mobile-menu > button { align-self: flex-end; padding: 8px; border: 0; background: none; }
 .mobile-menu nav { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,.2); }
 .mobile-menu nav a {
@@ -631,42 +635,114 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
   .hero-inner,
   .wide-grid { width: min(100% - 28px, 1400px); }
   .site-header { top: 14px; }
-  .nav-shell { min-height: 46px; padding: 0 16px; }
-  .header-cta { min-height: 46px; padding: 0 16px; font-size: 9px; }
+  .header-frame { gap: 10px; }
+  .nav-shell { min-height: 46px; padding: 0 14px; gap: 12px; }
+  .header-cta { min-height: 46px; padding: 0 14px; gap: 7px; font-size: 9px; }
+  .mobile-menu {
+    padding:
+      max(20px, env(safe-area-inset-top))
+      20px
+      max(20px, env(safe-area-inset-bottom));
+    gap: clamp(18px, 4vh, 32px);
+  }
+  .mobile-menu nav a {
+    padding: clamp(10px, 2vh, 15px) 0;
+    font-size: clamp(26px, 7.5vw, 36px);
+    line-height: .95;
+  }
   .hero { padding: 135px 0 60px; }
-  .hero h1 { font-size: clamp(52px, 18vw, 82px); }
+  .hero h1 { font-size: clamp(44px, 14.8vw, 58px); line-height: .88; }
   .hero-side > p { margin-top: 16px; }
   .hero-ghost { width: 130vw; height: 130vw; right: -75vw; }
   .marquee { margin-bottom: 92px; }
   .manifesto, .services, .pricing, .portfolio, .faq { padding-top: 92px; padding-bottom: 92px; }
+  .manifesto h2, .faq h2 { font-size: clamp(42px, 12vw, 52px); }
   .manifesto-copy > p { font-size: 21px; }
-  .section-lead h2, .portfolio h2, .pricing h2 { font-size: 54px; }
+  .section-lead h2, .portfolio h2, .pricing h2 { font-size: clamp(40px, 12.5vw, 52px); }
+  .hero h1,
+  .manifesto h2,
+  .section-lead h2,
+  .method h2,
+  .portfolio h2,
+  .pricing h2,
+  .benefits h2,
+  .faq h2,
+  .final-cta h2 { overflow-wrap: anywhere; }
   .service-grid { grid-template-columns: 1fr; }
   .service-grid article { min-height: 280px; padding: 32px; }
   .transformation article { padding: 58px 24px; }
-  .transformation h3 { font-size: 42px; }
+  .transformation h3 { font-size: clamp(36px, 10.5vw, 42px); }
   .method-heading, .benefits-intro { min-height: auto; padding: 80px 24px; }
-  .method-heading h2, .benefits-intro h2 { font-size: 50px; }
+  .method-heading h2, .benefits-intro h2 { font-size: clamp(40px, 12vw, 50px); }
   .method-list { padding: 40px 24px; }
   .method-list article { padding: 30px 0; grid-template-columns: 42px 1fr 24px; gap: 14px; }
   .method-list article p { grid-column: 2 / -1; margin: 0; }
   .project-grid article { display: block; }
   .project-grid { gap: 52px; }
   .project-visual { margin-bottom: 20px; }
-  .pricing-grid article { min-height: 540px; padding: 30px; }
+  .pricing-grid article { min-height: 500px; padding: 28px; }
+  .plan-bottom strong { font-size: 58px; }
   .benefit-grid { grid-template-columns: 1fr; }
-  .benefit-grid article { min-height: 250px; border-bottom: 2px solid var(--black) !important; }
+  .benefit-grid article { min-height: 230px; padding: 30px 24px; border-bottom: 2px solid var(--black) !important; }
   .benefit-grid article:last-child { border-bottom: 0 !important; }
   .faq-intro > span { width: 90px; height: 90px; }
   .faq-list summary { padding: 24px 0; }
-  .faq-list summary span { font-size: 17px; }
+  .faq-list summary span { min-width: 0; font-size: 17px; overflow-wrap: anywhere; }
+  .faq-list summary svg { flex: 0 0 auto; }
   .final-cta { min-height: 720px; padding: 100px 18px; }
-  .final-cta h2 { font-size: 58px; }
-  .final-cta a { min-height: 66px; padding: 0 28px; font-size: 12px; }
+  .final-cta h2 { font-size: clamp(46px, 14vw, 58px); }
+  .final-cta a { width: min(100%, 320px); min-height: 66px; padding: 0 24px; justify-content: center; gap: 16px; font-size: 12px; }
   footer { padding-top: 72px; }
   .footer-main { grid-template-columns: 1fr; gap: 46px; }
   .footer-brand, .footer-main nav, .footer-contact { padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.16); }
   .footer-bottom { line-height: 1.7; }
+}
+
+@media (max-width: 380px) {
+  .header-frame,
+  .hero-inner,
+  .wide-grid { width: calc(100% - 24px); }
+  .header-frame { gap: 8px; }
+  .nav-shell { min-height: 44px; padding: 0 11px; gap: 9px; }
+  .wordmark--compact strong { font-size: 19px; }
+  .header-cta { min-height: 44px; padding: 0 11px; font-size: 8px; letter-spacing: .08em; }
+  .header-cta-label--full { display: none; }
+  .header-cta-label--short { display: inline; }
+  .eyebrow { font-size: 10px; letter-spacing: .14em; }
+  .hero { padding-top: 122px; }
+  .hero h1 { font-size: clamp(43px, 14.6vw, 54px); }
+  .manifesto, .services, .pricing, .portfolio, .faq {
+    padding: 80px 16px;
+  }
+  .manifesto { padding-right: 0; padding-left: 0; }
+  .manifesto h2, .faq h2 { font-size: clamp(39px, 12vw, 46px); }
+  .section-lead h2, .portfolio h2, .pricing h2 { font-size: clamp(38px, 12vw, 46px); }
+  .section-lead { margin-bottom: 52px; }
+  .service-grid article { min-height: 250px; padding: 26px; }
+  .transformation article { padding: 52px 18px; }
+  .profile-preview { padding: 16px; }
+  .profile-top { grid-template-columns: 40px 1fr 56px; gap: 8px; }
+  .profile-avatar { width: 40px; height: 40px; }
+  .method-heading, .benefits-intro { padding: 64px 18px; }
+  .method-list { padding: 32px 18px; }
+  .method-list article { grid-template-columns: 34px 1fr 20px; gap: 10px; }
+  .method-list h3 { font-size: 20px; overflow-wrap: anywhere; }
+  .pricing-grid article { min-height: 470px; padding: 24px; }
+  .pricing-grid h3 { font-size: 28px; }
+  .plan-bottom strong { font-size: 54px; }
+  .faq-list summary { gap: 14px; }
+  .faq-list summary span { font-size: 15px; }
+  .final-cta { min-height: 640px; padding: 80px 16px; }
+  .final-cta h2 { margin: 38px 0 50px; font-size: clamp(43px, 14vw, 52px); }
+  .final-cta a { min-height: 62px; padding: 0 18px; gap: 12px; font-size: 11px; }
+  footer { padding-right: 16px; padding-left: 16px; }
+}
+
+@media (max-height: 640px) and (max-width: 620px) {
+  .mobile-menu { gap: 14px; }
+  .mobile-menu .wordmark small { display: none; }
+  .mobile-menu nav a { padding: 9px 0; font-size: clamp(23px, 6.8vw, 30px); }
+  .mobile-menu > a:last-child { margin-top: 0; padding: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
