@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 160" role="img" aria-labelledby="title desc">
+  <title id="title">LAB8 Social Media Design</title>
+  <desc id="desc">Versão branca do logotipo LAB8</desc>
+  <rect width="660" height="160" fill="none"/>
+  <text x="8" y="102" fill="#FFFFFF" font-family="Montserrat,Arial,sans-serif" font-size="104" font-weight="600" letter-spacing="7">LAB</text>
+  <circle cx="158" cy="88" r="8" fill="#FFFFFF"/>
+  <g transform="translate(438 7)">
+    <path d="M48 34C48 10 78-1 99 12C119 24 121 51 102 65L64 92C45 105 47 132 69 141C91 150 117 135 117 111" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M117 34C117 10 87-1 66 12C46 24 44 51 63 65L101 92C120 105 118 132 96 141C74 150 48 135 48 111" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="35" cy="137" r="9" fill="#FFFFFF"/>
+    <circle cx="128" cy="10" r="9" fill="#FFFFFF"/>
+  </g>
+  <text x="10" y="145" fill="#FFFFFF" font-family="Poppins,Arial,sans-serif" font-size="17" font-weight="500" letter-spacing="9">SOCIAL MEDIA DESIGN</text>
+</svg>
