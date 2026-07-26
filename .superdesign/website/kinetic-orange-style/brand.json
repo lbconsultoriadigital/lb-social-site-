@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "url": "https://superdesign.dev/library/kinetic-orange-style",
+    "title": "Kinetic Orange Style | Superdesign Prompts",
+    "description": "AI-powered design platform for creating beautiful interfaces and experiences",
+    "language": "en",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+    "themeColor": "#fafafa",
+    "ogImage": "https://superdesign.dev/icons/icon-512x512.png",
+    "ogTitle": "Superdesign",
+    "ogDescription": "AI-powered design platform for creating beautiful interfaces and experiences"
+  },
+  "theme": {
+    "mode": "light",
+    "bodyBackground": "#fcfcfc",
+    "isDark": false,
+    "confidence": 0.9
+  },
+  "brand": {
+    "name": "Superdesign",
+    "favicon": {
+      "href": "https://superdesign.dev/superdesign_logo.svg",
+      "type": null
+    }
+  },
+  "colors": {
+    "dominant": [
+      {
+        "hex": "#ebebeb",
+        "ratio": 0.69
+      },
+      {
+        "hex": "#000000",
+        "ratio": 0.229
+      },
+      {
+        "hex": "#707070",
+        "ratio": 0.035
+      },
+      {
+        "hex": "#f2f2f2",
+        "ratio": 0.016
+      },
+      {
+        "hex": "#52525b",
+        "ratio": 0.008
+      },
+      {
+        "hex": "#3f3f46",
+        "ratio": 0.005
+      },
+      {
+        "hex": "#fafafa",
+        "ratio": 0.004
+      },
+      {
+        "hex": "#e4e4e7",
+        "ratio": 0.003
+      },
+      {
+        "hex": "#fcfcfc",
+        "ratio": 0.003
+      },
+      {
+        "hex": "#f4f4f5",
+        "ratio": 0.002
+      },
+      {
+        "hex": "#ffffff",
+        "ratio": 0.001
+      },
+      {
+        "hex": "#18181b",
+        "ratio": 0.001
+      },
+      {
+        "hex": "#f87171",
+        "ratio": 0.001
+      },
+      {
+        "hex": "#fbbf24",
+        "ratio": 0.001
+      },
+      {
+        "hex": "#34d399",
+        "ratio": 0.001
+      }
+    ],
+    "palette": [
+      {
+        "hex": "#fcfcfc",
+        "role": "background",
+        "source": "computed"
+      },
+      {
+        "hex": "#000000",
+        "role": "foreground",
+        "source": "computed"
+      },
+      {
+        "hex": "#fbbf24",
+        "role": "primary",
+        "source": "heuristic"
+      },
+      {
+        "hex": "#f87171",
+        "role": "secondary",
+        "source": "heuristic"
+      },
+      {
+        "hex": "#34d399",
+        "role": "accent",
+        "source": "heuristic"
+      },
+      {
+        "hex": "#707070",
+        "role": "neutral",
+        "source": "heuristic"
+      }
+    ],
+    "cssVariables": {
+      "--skeleton-bg": "#1a1a1a",
+      "--tw-ring-color": "#3f3f46",
+      "--tw-ring-offset-color": "#fff",
+      "--skeleton-shimmer": "#2a2a2a",
+      "--sidebar-item-selected": "#ffffff"
+    },
+    "gradients": []
+  },
+  "logo": {
+    "candidates": [],
+    "best": null
+  },
+  "fonts": {
+    "computed": [
+      {
+        "family": "\"Inter Variable\", Inter, system-ui, sans-serif, system-ui, sans-serif",
+        "weights": [
+          "400",
+          "500",
+          "600"
+        ],
+        "source": "system"
+      }
+    ],
+    "baseSizePx": 16
+  },
+  "confidence": {
+    "colorExtraction": 0.9,
+    "logoDetection": 0.3,
+    "fontDetection": 0.8
+  },
+  "screenshot": {
+    "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/brand/6ae88ed8-d254-4a83-af63-a6c0e67310ad/screenshot.png",
+    "width": 1920,
+    "height": 1080,
+    "sizeBytes": 128408,
+    "uploadedAt": "2026-07-26T15:45:02.099Z"
+  },
+  "assets": {
+    "08ff60cb-4951-4a6b-bc8c-fbc726e369e3": {
+      "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/brand/6ae88ed8-d254-4a83-af63-a6c0e67310ad/assets/08ff60cb-4951-4a6b-bc8c-fbc726e369e3.png",
+      "name": "ACg8ocIgpLPzAN7V4fhw6pYdlx5oJCDqK-l8syQ8zomdCvWwJKBEyg=s96-c",
+      "type": "image",
+      "description": "Icon featuring a white sans-serif capital letter 'S' on a medium blue-gray square background. The letter is centered with ample negative space around it, making this suitable for text overlay placement anywhere outside the icon's bounds. The design is minimal and clean with neutral cool tones and high contrast between the white character and muted blue-gray field.",
+      "metadata": {
+        "size": "1.64 KB",
+        "mimeType": "image/png",
+        "sizeBytes": 1679,
+        "uploadedAt": "2026-07-26T15:45:02.281Z"
+      }
+    }
+  }
+}
