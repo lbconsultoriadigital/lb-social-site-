@@ -59,6 +59,24 @@ svg { display: block; flex: 0 0 auto; }
   letter-spacing: .23em;
 }
 .wordmark--compact strong { font-size: 21px; }
+.nav-wordmark { display: inline-flex; align-items: center; gap: 9px; }
+.original-mark {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: 50%;
+}
+.original-mark img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340%;
+  max-width: none;
+  transform: translate(-50%, -39%);
+}
 
 .site-header {
   position: fixed;
@@ -145,6 +163,12 @@ svg { display: block; flex: 0 0 auto; }
 }
 .mobile-menu.is-open { transform: translateX(0); visibility: visible; }
 .mobile-menu > button { align-self: flex-end; padding: 8px; border: 0; background: none; }
+.mobile-logo-original {
+  width: min(190px, 54vw);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 24px;
+}
 .mobile-menu nav { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,.2); }
 .mobile-menu nav a {
   padding: 17px 0;
@@ -239,6 +263,7 @@ svg { display: block; flex: 0 0 auto; }
   text-transform: uppercase;
 }
 .hero h1 { margin-top: 34px; font-size: clamp(68px, 11.7vw, 170px); }
+.hero h1 > span { display: block; white-space: nowrap; }
 .hero-side > p { margin: 0 0 34px; max-width: 440px; font-size: clamp(18px, 2vw, 25px); line-height: 1.45; }
 
 .scroll-cue { display: flex; align-items: center; gap: 18px; }
@@ -574,15 +599,17 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
 .footer-main a:hover { color: var(--white); }
 .official-logo-zone > div {
   min-height: 150px;
-  padding: 24px;
   display: grid;
   place-items: center;
   border: 1px dashed rgba(255,255,255,.28);
-  color: rgba(255,255,255,.38);
-  font-size: 9px;
-  letter-spacing: .12em;
-  text-align: center;
-  text-transform: uppercase;
+  overflow: hidden;
+  background: var(--white);
+}
+.official-logo-zone img {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
 }
 .footer-bottom { padding-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 30px; color: #676767; font-size: 9px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; }
 
@@ -651,7 +678,7 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
     line-height: .95;
   }
   .hero { padding: 135px 0 60px; }
-  .hero h1 { font-size: clamp(44px, 14.8vw, 58px); line-height: .88; }
+  .hero h1 { font-size: clamp(38px, 11.8vw, 52px); line-height: .9; }
   .hero-side > p { margin-top: 16px; }
   .hero-ghost { width: 130vw; height: 130vw; right: -75vw; }
   .marquee { margin-bottom: 92px; }
@@ -659,15 +686,6 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
   .manifesto h2, .faq h2 { font-size: clamp(42px, 12vw, 52px); }
   .manifesto-copy > p { font-size: 21px; }
   .section-lead h2, .portfolio h2, .pricing h2 { font-size: clamp(40px, 12.5vw, 52px); }
-  .hero h1,
-  .manifesto h2,
-  .section-lead h2,
-  .method h2,
-  .portfolio h2,
-  .pricing h2,
-  .benefits h2,
-  .faq h2,
-  .final-cta h2 { overflow-wrap: anywhere; }
   .service-grid { grid-template-columns: 1fr; }
   .service-grid article { min-height: 280px; padding: 32px; }
   .transformation article { padding: 58px 24px; }
@@ -687,7 +705,7 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
   .benefit-grid article:last-child { border-bottom: 0 !important; }
   .faq-intro > span { width: 90px; height: 90px; }
   .faq-list summary { padding: 24px 0; }
-  .faq-list summary span { min-width: 0; font-size: 17px; overflow-wrap: anywhere; }
+  .faq-list summary span { min-width: 0; font-size: 17px; }
   .faq-list summary svg { flex: 0 0 auto; }
   .final-cta { min-height: 720px; padding: 100px 18px; }
   .final-cta h2 { font-size: clamp(46px, 14vw, 58px); }
@@ -703,14 +721,16 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
   .hero-inner,
   .wide-grid { width: calc(100% - 24px); }
   .header-frame { gap: 8px; }
-  .nav-shell { min-height: 44px; padding: 0 11px; gap: 9px; }
+  .nav-shell { min-height: 44px; padding: 0 10px; gap: 8px; }
+  .original-mark { width: 28px; height: 28px; }
+  .nav-wordmark { gap: 6px; }
   .wordmark--compact strong { font-size: 19px; }
   .header-cta { min-height: 44px; padding: 0 11px; font-size: 8px; letter-spacing: .08em; }
   .header-cta-label--full { display: none; }
   .header-cta-label--short { display: inline; }
   .eyebrow { font-size: 10px; letter-spacing: .14em; }
   .hero { padding-top: 122px; }
-  .hero h1 { font-size: clamp(43px, 14.6vw, 54px); }
+  .hero h1 { font-size: clamp(37px, 11.7vw, 44px); }
   .manifesto, .services, .pricing, .portfolio, .faq {
     padding: 80px 16px;
   }
@@ -726,7 +746,7 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
   .method-heading, .benefits-intro { padding: 64px 18px; }
   .method-list { padding: 32px 18px; }
   .method-list article { grid-template-columns: 34px 1fr 20px; gap: 10px; }
-  .method-list h3 { font-size: 20px; overflow-wrap: anywhere; }
+  .method-list h3 { font-size: 20px; }
   .pricing-grid article { min-height: 470px; padding: 24px; }
   .pricing-grid h3 { font-size: 28px; }
   .plan-bottom strong { font-size: 54px; }
@@ -740,7 +760,7 @@ footer { padding: 96px max(24px, calc((100vw - 1400px) / 2)) 42px; color: var(--
 
 @media (max-height: 640px) and (max-width: 620px) {
   .mobile-menu { gap: 14px; }
-  .mobile-menu .wordmark small { display: none; }
+  .mobile-logo-original { width: min(120px, 34vw); border-radius: 16px; }
   .mobile-menu nav a { padding: 9px 0; font-size: clamp(23px, 6.8vw, 30px); }
   .mobile-menu > a:last-child { margin-top: 0; padding: 14px; }
 }
