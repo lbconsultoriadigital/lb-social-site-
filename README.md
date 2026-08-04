@@ -1,42 +1,33 @@
 # LAB8 Social Media Design
 
-Site institucional da LAB8.
+Versão estática adaptada do site publicado no ChatGPT Sites, pronta para GitHub e Vercel.
 
 ## Identidade
 
-- Nome: LAB8
-- Assinatura: Social Media Design
-- Instagram: [@LAB8.md](https://www.instagram.com/lab8.md/)
-- Cor principal: `#2D4BFF`
-- Tipografia: Montserrat + Poppins
+- Visual cyber/editorial
+- Preto `#000000` / Onyx `#0A0A0A`
+- Acid `#CCFF00`
+- Pink `#FF00FF`
+- Cyan `#00F0FF`
+- Fontes: Syne, Space Grotesk e Montserrat
 
-## Stack
+## Oferta canônica
 
-- React
-- Vite
-- Lucide React
-- Vercel
+Perfil Express LAB8 — Edição Fundadores por R$49.
 
-## Desenvolvimento
+Inclui:
+- Raio-X visual e estratégico
+- Nova bio
+- Direção visual expressa
+- 1 template editável no Canva
+- 3 ideias de conteúdo
+- Checklist de próximos ajustes
 
-```bash
-npm install
-npm run dev
-```
+Prazo: até 2 dias úteis depois do briefing e materiais completos.
+Revisão: uma rodada objetiva.
 
-## Build
+## Publicação
 
-```bash
-npm run build
-```
+O site é uma página estática em `index.html`. A Vercel pode usar o preset `Other` ou o build atual do Vite.
 
-## Estrutura
-
-```text
-public/          arquivos de marca e imagens
-src/App.jsx      componentes e conteúdo
-src/styles.css   estilos e design tokens
-src/main.jsx     entrada da aplicação
-```
-
-A branch `main` deve ser conectada à Vercel para deploy automático.
+Branch de adaptação: `site/chatgpt-cyber-editorial`.
